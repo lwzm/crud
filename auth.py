@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 
 import json
+import os
 import time
 import falcon
 import jwt
 
 api = application = falcon.API()
 
+SECRET = os.environ.get("SECRET", "x" * 32)
+MAX_AGE = 86400 * 999
+
 
 class Auth:
     def on_post(self, req, resp):
         payload = json.load(req.stream)
         payload["iat"] = int(time.time())
-        token = jwt.encode(payload, "your-secret")
-        print(payload, token)
-        resp.set_cookie('auth', token.decode(), path="/api")
+        token = jwt.encode(payload, SECRET)
+        resp.set_cookie("auth", token.decode(), max_age=MAX_AGE, path="/api")
 
 
 api.add_route('/auth', Auth())
