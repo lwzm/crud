@@ -1,10 +1,10 @@
 import React from "react"
 import { HashRouter as Router, Route, Link } from "react-router-dom"
 import { MenuList, MenuItem, Grid } from "@material-ui/core"
-import { get } from 'axios'
+import { Formik , Field} from 'formik'
+import { get, post } from 'axios'
 import cfg from './cfg'
 import X from './c'
-
 
 const types = {
     "integer": "number",
@@ -29,6 +29,22 @@ const types = {
     "numeric": "number",
 }
 
+function Home() {
+    return <Formik
+        onSubmit={async (values, actions) => {
+            await post("/auth", values)
+            actions.setSubmitting(false)
+        }}
+    >
+    {({ handleSubmit }) => <form onSubmit={handleSubmit}>
+
+            <Field name="role" />
+            <button type="submit">Login</button>
+        </form>
+    }
+    </Formik>
+}
+
 function g(t) {
     return ({ history }) => {
         const s = localStorage.getItem(`resized:${t.table}`)
@@ -49,6 +65,7 @@ function App({ tables }) {
             </Grid>
             <Grid item xs={11}>
                 <div style={{ width: 'auto' }}>
+                    <Route exact path="/" component={Home} />
                     {tables.map((t, idx) => {
                         return <Route key={idx} exact path={`/${t.table}`} component={g(t)} />
                     })}
