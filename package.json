@@ -12,14 +12,14 @@
     "formik-material-ui": "latest",
     "js-yaml": "latest",
     "lodash": "latest",
-    "react": "next",
-    "react-dom": "next",
+    "react": "latest",
+    "react-dom": "latest",
     "react-json-tree": "latest",
     "react-router-dom": "latest",
     "react-scripts": "latest",
     "react-table": "latest"
   },
-  "proxy": "https://ng.tyio.net",
+  "proxy": "https://table.tyio.net",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

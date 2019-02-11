@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect, useContext, useMemo } from 'react'
+import React from 'react'
 import ReactTable from "react-table"
 import axios from "axios"
 import yaml from "js-yaml"
@@ -64,7 +64,7 @@ function DeleteIcon({ show, onClick }) {
 }
 
 
-class Table extends Component {
+class Table extends React.Component {
     state = {
         data: [],
         pages: 0,
