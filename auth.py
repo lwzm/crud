@@ -18,6 +18,7 @@ class Auth:
         payload["iat"] = int(time.time())
         token = jwt.encode(payload, SECRET)
         resp.set_cookie("auth", token.decode(), max_age=MAX_AGE, path="/api")
+                        #, secure=False, http_only=False)
 
 
 api.add_route('/auth', Auth())
