@@ -163,7 +163,7 @@ class Table extends React.Component {
             // if (sorted.length) {
             //     s.sorted = JSON.stringify(sorted)
             // }
-            // const search = qs.stringify(s) 
+            // const search = qs.stringify(s)
             // if (history.location.search !== search) {
             //     history.push({ search })
             // }
@@ -172,10 +172,10 @@ class Table extends React.Component {
         this.setState({ loading: true })
         const headers = {
             Prefer: "count=exact",
-            Range: `${pageSize * page}-${pageSize * (page + 1) - 1}`,
+            // Range: `${pageSize * page}-${pageSize * (page + 1) - 1}`,
         }
 
-        const params = {}
+        const params = { offset: pageSize * page, limit: pageSize }
         filtered.map(({ id, value }) => {
             if (value.match(rawFilterTokens)) {
                 return params[id] = value
