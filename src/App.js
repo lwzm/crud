@@ -48,8 +48,16 @@ export default class App extends React.Component {
     }
 
     async fetchDefinitions() {
+        // try {
+        //     const { data } = await get("/tables.json")
+        //     Object.assign(cfg.tables, data)
+        // } catch (error) {
+        //     const { data: { definitions } } = await get("/api/")
+        //     Object.assign(cfg.tables, this.buildMenu(definitions))
+        // }
         const { data: { definitions } } = await get("/api/")
-        this.buildMenu(definitions)
+        Object.assign(cfg.tables, this.buildMenu(definitions))
+        this.setState({ tables: Object.values(cfg.tables) })
     }
 
     buildMenu(definitions) {
@@ -92,8 +100,7 @@ export default class App extends React.Component {
             }
         }
 
-        this.setState({ tables: Object.values(tables) })
-        Object.assign(cfg.tables, tables)
+        return tables
     }
 
     renderHome = () => {
