@@ -248,7 +248,7 @@ class Table extends React.Component {
         return this.state.selection.includes(_id)
     }
 
-    get table() {
+    renderTable() {
         const { hoc, primary, fields, sorted, filtered, resized, filterable, tiny, pageSize, history } = this.props
         const { toggleSelection, toggleAll, isSelected, selectAll } = this
         const { loading, pages, data } = this.state
@@ -375,7 +375,7 @@ class Table extends React.Component {
         />
     }
 
-    get deleteIcon(){
+    renderDeleteIcon(){
         const { data, selection, } = this.state
         return <DeleteIcon show={selection.length} onClick={() => {
             const pks = this.props.primary.split(",")
@@ -391,7 +391,7 @@ class Table extends React.Component {
         }} />
     }
 
-    get modal() {
+    renderModal() {
         const { modalOpen, modalData } = this.state
         const { fields } = this.props
         return <Modal
@@ -412,10 +412,10 @@ class Table extends React.Component {
 
     render() {
         return <div>
-            {this.deleteIcon}
+            {this.renderDeleteIcon()}
             {this.error}
-            {this.table}
-            {this.modal}
+            {this.renderTable()}
+            {this.renderModal()}
         </div>
     }
 }

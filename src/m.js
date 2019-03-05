@@ -103,8 +103,7 @@ function getModalStyle() {
     }
 }
 
-export default function (props) {
-    const { open, close } = props
+export default function ({ open, close, ...props}) {
     return <Modal open={open} onClose={close} >
         <div style={getModalStyle()}>
             <F {...props} />
