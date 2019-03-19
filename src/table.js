@@ -43,7 +43,7 @@ function generateColumns(fields) {
                     column.Cell = ({ row }) => {
                         const s = row[k]
                         return <div>
-                            {s && s.split('\n').map(line => <div>{line}</div>)}
+                            {s && s.split('\n').map((line, idx) => <div key={idx}>{line}</div>)}
                         </div>
                     }
                 }
