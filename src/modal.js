@@ -1,8 +1,8 @@
 import React from 'react'
 import { Modal, Button, MenuItem, FormControl } from '@material-ui/core'
 import { CheckboxWithLabel, TextField } from 'formik-material-ui'
-import * as ui from 'formik-material-ui'
 import { Formik, Form, Field } from 'formik'
+import * as ui from 'formik-material-ui'
 
 function MyForm({ data, submit, fields }) {
     const values = { ...data }

@@ -9,7 +9,7 @@ import HOC from "react-table/lib/hoc/selectTable"
 
 import { tables } from './cfg'
 
-import Modal from './m'
+import Modal from './modal'
 
 import "react-table/react-table.css"
 
@@ -36,8 +36,18 @@ function generateColumns(fields) {
             Header: k,
             accessor: k,
         }
-        const { type } = fields[k]
+        const { type, multiline } = fields[k]
         switch (type) {
+            case "text":
+                if (multiline) {
+                    column.Cell = ({ row }) => {
+                        const s = row[k]
+                        return <div>
+                            {s && s.split('\n').map(line => <div>{line}</div>)}
+                        </div>
+                    }
+                }
+                break;
             case "json":
                 column.Cell = ({ row }) => <pre>{yaml.dump(row[k])}</pre>
                 break;
