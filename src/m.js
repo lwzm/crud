@@ -4,7 +4,7 @@ import { CheckboxWithLabel, TextField } from 'formik-material-ui'
 import * as ui from 'formik-material-ui'
 import { Formik, Form, Field } from 'formik'
 
-function F({ data, submit, fields }) {
+function MyForm({ data, submit, fields }) {
     const values = { ...data }
     for (const [key, { type }] of Object.entries(fields)) {
         if (!type) continue
@@ -84,6 +84,7 @@ function F({ data, submit, fields }) {
     </Formik>
 }
 
+
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -103,10 +104,11 @@ function getModalStyle() {
     }
 }
 
+
 export default function ({ open, close, ...props}) {
     return <Modal open={open} onClose={close} >
         <div style={getModalStyle()}>
-            <F {...props} />
+            <MyForm {...props} />
         </div>
     </Modal>
 }

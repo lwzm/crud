@@ -69,11 +69,14 @@ export default class App extends React.Component {
             let primary = []
             for (const column in properties) {
                 const info = {}
-                const { format, description } = properties[column]
+                const { format, description, maxLength } = properties[column]
                 const type = types[format]
                 const fk = fkRE.exec(description)
                 if (type) {
                     info.type = type
+                    if (type === 'text' && !maxLength) {
+                        info.multiline = true
+                    }
                 }
                 if (fk) {
                     info.ref = fk.slice(1, 3).join('.')
