@@ -74,7 +74,10 @@ export default class App extends React.Component {
                 const fk = fkRE.exec(description)
                 if (type) {
                     info.type = type
-                    if (type === 'text' && !maxLength) {
+                    if (type === 'json') {
+                        info.multiline = true
+                    }
+                    else if (type === 'text' && !maxLength) {
                         info.multiline = true
                     }
                 }
