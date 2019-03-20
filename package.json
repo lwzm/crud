@@ -17,7 +17,7 @@
     "react-json-tree": "latest",
     "react-router-dom": "latest",
     "react-scripts": "latest",
-    "react-table": "latest"
+    "react-table": "~6.8"
   },
   "proxy": "https://table.tyio.net",
   "scripts": {

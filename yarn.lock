@@ -8588,10 +8588,10 @@ react-scripts@latest:
   optionalDependencies:
     fsevents "1.2.4"
 
-react-table@latest:
-  version "6.9.2"
-  resolved "http://registry.npm.taobao.org/react-table/download/react-table-6.9.2.tgz#6a59adfeb8d5deced288241ed1c7847035b5ec5f"
-  integrity sha1-almt/rjV3s7SiCQe0ceEcDW17F8=
+react-table@~6.8:
+  version "6.8.6"
+  resolved "http://registry.npm.taobao.org/react-table/download/react-table-6.8.6.tgz#a0ad8b4839319052d5befc012603fb161e52ede3"
+  integrity sha1-oK2LSDkxkFLVvvwBJgP7Fh5S7eM=
   dependencies:
     classnames "^2.2.5"
 
