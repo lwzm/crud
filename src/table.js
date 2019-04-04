@@ -260,6 +260,7 @@ class Table extends React.Component {
 
     renderTable() {
         const { hoc, primary, fields, sorted, filtered, resized, filterable, tiny, pageSize, history } = this.props
+        if (!fields) return
         const { toggleSelection, toggleAll, isSelected, selectAll } = this
         const { loading, pages, data } = this.state
 

@@ -95,7 +95,10 @@ export default class App extends React.Component {
 
         function _reg(token, key) {
             const [table, column] = token.split(".")
-            tables[table].follows[key] = column
+            const t = tables[table]
+            if (t) {
+                t.follows[key] = column
+            }
         }
 
         for (const { table, fields } of Object.values(tables)) {
