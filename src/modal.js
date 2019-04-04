@@ -12,7 +12,7 @@ function MyForm({ data, submit, fields }) {
             values[key] = JSON.stringify(values[key], null, 2)
         } else if (type.startsWith("datetime")) {
             const v = values[key]
-            values[key] = v ? v.slice(0, 19) : ""
+            values[key] = v ? v.slice(0, 19) : v
         }
     }
     return <Formik
